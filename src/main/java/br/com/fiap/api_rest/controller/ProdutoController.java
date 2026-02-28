@@ -3,6 +3,7 @@ package br.com.fiap.api_rest.controller;
 
 import br.com.fiap.api_rest.model.Produto;
 import br.com.fiap.api_rest.service.ProdutoService;
+import dto.ProdutoRequest;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ public class ProdutoController {
     //POST, GET, PUT, DELETE
     @PostMapping
     public ResponseEntity<Produto> createProduto(@RequestBody Produto produto){
-        Produto produtoSalvo = produtoService.create(produto);
+        Produto produtoSalvo = produtoService.create(ProdutoRequest);
         return new ResponseEntity<>(produtoSalvo, HttpStatus.CREATED);
     }
     @GetMapping("/{id}")
@@ -54,4 +55,4 @@ public class ProdutoController {
     }
 }
 
- 
+
