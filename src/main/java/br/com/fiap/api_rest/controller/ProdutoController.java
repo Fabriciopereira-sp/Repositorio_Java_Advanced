@@ -39,6 +39,8 @@ public class ProdutoController {
 
     @GetMapping
     public ResponseEntity<List<ProdutoResponse>> readProduto() {
+        //page number, page size, sort
+        Pageable pageable = PageRequest.of(0,2,Sortby("nome").ascending())
         List<ProdutoResponse> produtos = produtoService.read();
         if (produtos.isEmpty()) {
             return  new ResponseEntity<>(HttpStatus.NOT_FOUND);

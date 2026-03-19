@@ -42,8 +42,8 @@ public class ProdutoService {
     }
 
     public List<ProdutoResponse> read() {
-        List<Produto> produtos = produtoRepository.findAll();
-        return produtos
+        List<Produto> produtos = produtoRepository.findAll(pageable);
+        return produtoRepository.finAll(pageable)
                 .stream()Stream<Produto>
                 .map(produtoMapper::produtoToResponse)Stream<ProdutoResponse>
                 .collect(Collectors.toList());
