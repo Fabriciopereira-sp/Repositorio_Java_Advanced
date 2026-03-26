@@ -9,4 +9,7 @@ public class ProdutoMapper {
     public ProdutoResponse produtoToResponse(Produto produto){
         return new ProdutoResponse(produto.getId(), produto.getNome(), produto.getPreco());
     }
+    public ProdutoLista produtoToResponseLista(Produto produto){
+
+        Link link = linkTo(methodOn(ProdutoController.class.readProduto(produto.getid)));   }
 }
